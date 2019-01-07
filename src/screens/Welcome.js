@@ -8,7 +8,7 @@ class Welcome extends Component {
                <Text> Tela boas vindas </Text>
                <Text> Tela boas vindas </Text>
                <Text> Tela boas vindas </Text>
-               <Text> Tela boas vindas </Text>
+               <Text style={{color: '#000'}}> Tela boas vindas </Text>
 
            </View>
         )
