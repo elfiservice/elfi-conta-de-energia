@@ -22,6 +22,8 @@ class Slides extends Component {
                 <Button
                     title="Concluido!"
                     raised
+                    buttonStyle={styles.doneBtn}
+                    onPress={this.props.onComplete}
                 />
             )
         }
@@ -47,8 +49,12 @@ const styles = StyleSheet.create({
         width: SCREEN_WIDTH_DEVICE,
     },
     slideText: {
-        fontSize: 20,
+        fontSize: 30,
         color: white
+    },
+    doneBtn: {
+        backgroundColor: red,
+        marginTop: 20,
     }
 });
 
