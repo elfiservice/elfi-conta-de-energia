@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 
 import Navigations from './src/Navigations'
 
-// continuar  https://www.udemy.com/react-native-advanced/learn/v4/t/lecture/6853586?start=425
+// continuar  https://www.udemy.com/react-native-advanced/learn/v4/t/lecture/6853590?start=431
 
 export default class App extends React.Component {
   render() {

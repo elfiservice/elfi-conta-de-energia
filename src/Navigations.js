@@ -8,7 +8,11 @@ import MainScreen from './screens/Main'
 
 const MainNavigator = createBottomTabNavigator({
     welcome: { screen: WelcomeScreen },
-    main: { screen: MainScreen  }
+    main: { 
+        screen: createBottomTabNavigator({
+            MainScreen: { screen: MainScreen }
+        })  
+    }
 })
 
     
