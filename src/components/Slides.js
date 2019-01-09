@@ -1,18 +1,30 @@
 import React, { Component } from 'react'
 import { StyleSheet, Text, View, ScrollView, Dimensions } from 'react-native'
 import { blue, white, red } from '../utils/colors'
+import { Button } from 'react-native-elements'
 
 const SCREEN_WIDTH_DEVICE = Dimensions.get('window').width;
 
 class Slides extends Component {
-    renderSlides = () => {
+    _renderSlides = () => {
         console.log(this.props.data);
         
         return this.props.data.map( (slide, index) => (
             <View key={index} style={[styles.slide, { backgroundColor: slide.color }]} >
                 <Text style={styles.slideText}>{slide.text}</Text>
+                {this._renderLastSlide(index)}
             </View>
         ))
+    }
+    _renderLastSlide = (index) => {
+        if(index === this.props.data.length - 1) {
+            return (
+                <Button
+                    title="Concluido!"
+                    raised
+                />
+            )
+        }
     }
     render() {
         return (
@@ -21,7 +33,7 @@ class Slides extends Component {
                 style={{ flex: 1 }}
                 pagingEnabled
             >
-                {this.renderSlides()}
+                {this._renderSlides()}
             </ScrollView>
         )
     }
