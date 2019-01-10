@@ -7,15 +7,18 @@ import MainScreen from './screens/Main'
 
 
 const MainNavigator = createBottomTabNavigator({
-    welcome: { screen: WelcomeScreen },
+    welcome: { 
+        screen: WelcomeScreen,     
+        navigationOptions: { tabBarVisible: false } 
+    },
     main: { 
         screen: createBottomTabNavigator({
-            MainScreen: { screen: MainScreen }
+            MainScreen: {
+                screen: MainScreen,     
+                navigationOptions: { tabBarVisible: false } 
+            }
         })  
-    }
+    },
 })
-
-    
-
 
 export default createAppContainer(MainNavigator)
