@@ -6,8 +6,8 @@ import Slides from '../components/Slides'
 
 const SLIDE_DATA = [
     { id: 1, text: 'Dia Fechamento da Fatura', color: blue },
-    // { id: 2, text: 'Leitura Anterior da ultima Conta Energia', color: red},
-    // { id: 3, text: 'Valor da Tarifa da ultima conta de Energia', color: blue},
+    { id: 2, text: 'Leitura Anterior da última Conta de Energia', color: red},
+    { id: 3, text: 'Valor da Tarifa da última Conta de Energia', color: blue},
 ]
 
 class Welcome extends Component {

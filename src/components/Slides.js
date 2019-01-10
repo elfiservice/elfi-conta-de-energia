@@ -4,6 +4,8 @@ import { blue, white, red } from '../utils/colors'
 import { Button } from 'react-native-elements'
 
 import DiaFechamentoFatura from './DiaFechamentoFatura'
+import LeituraAnterior from './LeituraAnterior'
+import TarifaAtual from './TarifaAtual'
 
 const SCREEN_WIDTH_DEVICE = Dimensions.get('window').width;
 
@@ -35,8 +37,15 @@ class Slides extends Component {
             case 1: 
                 return <DiaFechamentoFatura slide={slide} />
                 break;
+            case 2: 
+                return <LeituraAnterior slide={slide} />
+                break;
+            case 3: 
+                return <TarifaAtual slide={slide} />
+                break;
         
             default:
+                return <DiaFechamentoFatura slide={slide} />
                 break;
         }
     }
