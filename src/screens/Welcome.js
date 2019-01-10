@@ -5,9 +5,9 @@ import { blue, white, red } from '../utils/colors'
 import Slides from '../components/Slides'
 
 const SLIDE_DATA = [
-    { text: 'Dia Fechamento Conta', color: blue },
-    { text: 'Leitura Anterior da sua Conta Energia', color: red},
-    { text: 'Valor da Tarifa de Energia atual', color: blue},
+    { id: 1, text: 'Dia Fechamento da Fatura', color: blue },
+    // { id: 2, text: 'Leitura Anterior da ultima Conta Energia', color: red},
+    // { id: 3, text: 'Valor da Tarifa da ultima conta de Energia', color: blue},
 ]
 
 class Welcome extends Component {
