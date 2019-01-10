@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { StyleSheet, Text, View, TextInput } from 'react-native'
+import { StyleSheet, Text, View, TextInput, KeyboardAvoidingView } from 'react-native'
 import { green, white, red, gray } from '../utils/colors'
-import { Button, FormLabel, FormInput, FormValidationMessage } from 'react-native-elements'
+import { Button } from 'react-native-elements'
 
 class LeituraAnterior extends Component {
     constructor(props) {
@@ -13,7 +13,7 @@ class LeituraAnterior extends Component {
     }
     render() {
         return (
-           <View style={styles.container}>
+            <KeyboardAvoidingView style={styles.container} behavior="padding" enabled >
                <View style={styles.header} >
                     <Text style={styles.slideText}> {this.props.slide.text} </Text>       
                </View>
@@ -34,7 +34,7 @@ class LeituraAnterior extends Component {
                         onPress={this._save}
                     />
                </View>
-           </View>
+           </KeyboardAvoidingView>
         )
     }
 }

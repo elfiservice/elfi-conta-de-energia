@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { StyleSheet, Text, View, TextInput } from 'react-native'
+import { StyleSheet, Text, View, TextInput, KeyboardAvoidingView } from 'react-native'
 import { green, white, red, gray } from '../utils/colors'
-import { Button, FormLabel, FormInput, FormValidationMessage } from 'react-native-elements'
+import { Button } from 'react-native-elements'
 
 class DiaFechamentoFatura extends Component {
     constructor(props) {
@@ -13,7 +13,7 @@ class DiaFechamentoFatura extends Component {
     }
     render() {
         return (
-           <View style={styles.container}>
+           <KeyboardAvoidingView style={styles.container} behavior="padding" enabled >
                <View style={styles.header} >
                     <Text style={styles.slideText}> {this.props.slide.text} </Text>       
                </View>
@@ -34,14 +34,14 @@ class DiaFechamentoFatura extends Component {
                         onPress={this._save}
                     />
                </View>
-           </View>
+           </KeyboardAvoidingView>
         )
     }
 }
 
 const styles = StyleSheet.create({
     container: {
-        
+        // marginBottom: 100
     },
     header: {
         paddingLeft: 30,
