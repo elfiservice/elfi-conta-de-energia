@@ -1,21 +1,29 @@
 import React, { Component } from 'react'
-import { StyleSheet, Text, View, TextInput, KeyboardAvoidingView } from 'react-native'
+import { StyleSheet, Text, View, TextInput, KeyboardAvoidingView, TouchableHighlight, Alert } from 'react-native'
 import { green, white, red, gray } from '../utils/colors'
 import { Button } from 'react-native-elements'
+import { FontAwesome } from '@expo/vector-icons'
+import ModalInfo from './ModalInfo'
 
 class DiaFechamentoFatura extends Component {
     constructor(props) {
         super(props)
-        this.state = { dia: '' }
+        this.state = { dia: '', modalVisible: false }
     }
     _save = () => {
         alert('salvando ...')
     }
+    
+    _setModalVisible = (visible) => {
+        this.setState({modalVisible: visible});
+    }
+  
     render() {
+        const { slide } = this.props
         return (
            <KeyboardAvoidingView style={styles.container} behavior="padding" enabled >
                <View style={styles.header} >
-                    <Text style={styles.slideText}> {this.props.slide.text} </Text>       
+                    <Text style={styles.slideText}> {slide.text} </Text>       
                </View>
                <View style={styles.form}>
                     <TextInput
@@ -34,6 +42,17 @@ class DiaFechamentoFatura extends Component {
                         onPress={this._save}
                     />
                </View>
+                <ModalInfo 
+                    slide={slide} 
+                    modalVisible={this.state.modalVisible} 
+                    setModalVisible={this._setModalVisible} 
+                />
+                <TouchableHighlight
+                    style={styles.infoBtn}
+                    onPress={() => { this._setModalVisible(true) }}
+                >
+                    <FontAwesome name='question-circle' size={50} color={white} />
+                </TouchableHighlight>
            </KeyboardAvoidingView>
         )
     }
@@ -41,7 +60,9 @@ class DiaFechamentoFatura extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        // marginBottom: 100
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
     },
     header: {
         paddingLeft: 30,
@@ -50,6 +71,9 @@ const styles = StyleSheet.create({
     doneBtn: {
         backgroundColor: green,
         marginTop: 20,
+    },
+    infoBtn: {
+        marginTop: 40,
     },
     slideText: {
         fontSize: 30,
