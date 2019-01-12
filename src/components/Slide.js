@@ -10,8 +10,10 @@ class Slide extends Component {
         super(props)
         this.state = { dado: '', modalVisible: false }
     }
-    _save = () => {
-        alert('salvando ...')
+    _save = (slide) => {
+        // console.log(slide);
+        
+        alert(`Salvando ${this.props.slide.id} e ${this.state.dado}`)
     }
     
     _setModalVisible = (visible) => {
@@ -30,9 +32,9 @@ class Slide extends Component {
                         style={styles.textInput}
                         onChangeText={(dado) => this.setState({dado})}
                         value={this.state.dado}
-                        placeholder='Digite aqui'
+                        placeholder={`${slide.key} aqui`}
                         placeholderTextColor='#ccc'
-                        keyboardType='number-pad'
+                        keyboardType={slide.id === 3 ? 'decimal-pad' : 'number-pad'}
                     />
                     <Button
                         title="Salvar"
