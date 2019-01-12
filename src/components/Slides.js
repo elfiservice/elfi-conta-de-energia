@@ -3,9 +3,10 @@ import { StyleSheet, Text, View, ScrollView, Dimensions } from 'react-native'
 import { blue, white, red } from '../utils/colors'
 import { Button } from 'react-native-elements'
 
-import DiaFechamentoFatura from './DiaFechamentoFatura'
-import LeituraAnterior from './LeituraAnterior'
-import TarifaAtual from './TarifaAtual'
+// import DiaFechamentoFatura from './DiaFechamentoFatura'
+// import LeituraAnterior from './LeituraAnterior'
+// import TarifaAtual from './TarifaAtual'
+import Slide from './Slide'
 
 const SCREEN_WIDTH_DEVICE = Dimensions.get('window').width;
 
@@ -15,7 +16,8 @@ class Slides extends Component {
         
         return this.props.data.map( (slide, index) => (
             <View key={index} style={[styles.slide, { backgroundColor: slide.color }]} >
-                {this._selectSlide(slide)}
+                {/* {this._selectSlide(slide)} */}
+                <Slide slide={slide} />
                 {this._renderLastSlide(index)}
             </View>
         ))
@@ -72,6 +74,7 @@ const styles = StyleSheet.create({
     doneBtn: {
         backgroundColor: red,
         marginTop: 20,
+        marginBottom: 20,
     }
 });
 
