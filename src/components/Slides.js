@@ -12,7 +12,7 @@ const SCREEN_WIDTH_DEVICE = Dimensions.get('window').width;
 
 class Slides extends Component {
     _renderSlides = () => {
-        console.log(this.props.data);
+        //console.log(this.props.data);
         
         return this.props.data.map( (slide, index) => (
             <View key={index} style={[styles.slide, { backgroundColor: slide.color }]} >

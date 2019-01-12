@@ -4,16 +4,29 @@ import { green, white, red, gray } from '../utils/colors'
 import { Button } from 'react-native-elements'
 import { FontAwesome } from '@expo/vector-icons'
 import ModalInfo from './ModalInfo'
+import { saveData, getData } from '../utils/api'
 
 class Slide extends Component {
     constructor(props) {
         super(props)
         this.state = { dado: '', modalVisible: false }
     }
-    _save = (slide) => {
-        // console.log(slide);
-        
-        alert(`Salvando ${this.props.slide.id} e ${this.state.dado}`)
+    componentDidMount() {
+        getData(this.props.slide)
+            .then(result => {
+                if(result) {
+                    this.setState({ dado: result.value })
+                }  
+            })
+    }
+    _save = () => {
+        saveData(this.props.slide, this.state.dado)
+            .then(() => {
+                Alert.alert(`Salvo o valor ${this.state.dado} com sucesso!`)
+            })
+            .catch(err => {
+                Alert.alert(`Ops! Ocorreu um erro ao tentar salvar, favor tentar novamente! grato`)
+            })
     }
     
     _setModalVisible = (visible) => {
