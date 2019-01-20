@@ -6,19 +6,26 @@ const { height, width } = Dimensions.get('window')
 
 class DadosDaConta extends Component {
     render() {
+        const { data } = this.props
+        if(!data) {
+            return <View style={styles.dadosContainer}>
+                <Text>Carregando ...</Text>
+            </View>
+        }
+        
         return (
             <View style={styles.dadosContainer}>
                 <View style={[styles.dadosContent, styles.border]}>
                     <Text style={styles.dadoTitulo}>Dia fehcamento da Conta</Text>
-                    <Text style={styles.dado}>00</Text>
+                    <Text style={styles.dado}>{data['1'].value}</Text>
                 </View>
                 <View style={[styles.dadosContent, styles.border]}>
                     <Text style={styles.dadoTitulo}>Leitura Anterior</Text>
-                    <Text style={styles.dado}>000000</Text>
+                    <Text style={styles.dado}>{data['2'].value}</Text>
                 </View>
                 <View style={[styles.dadosContent, styles.lastDadosContent]}>
                     <Text style={styles.dadoTitulo}>Tarifa Atual</Text>
-                    <Text style={styles.dado}>0,000</Text>
+                    <Text style={styles.dado}>{data['3'].value}</Text>
                 </View>
             </View>
         )

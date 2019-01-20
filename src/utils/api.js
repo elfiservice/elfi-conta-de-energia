@@ -40,3 +40,14 @@ export function getData(slide) {
         return data[slide.id]
     })
 }
+
+export function getAllData() {
+    return AsyncStorage.getItem(CONTA_DE_ENERGIA_STORAGE_KEY)
+    .then((results) => {
+        const data = JSON.parse(results)
+        if(!data) {
+            return false
+        }
+        return data
+    })
+}
