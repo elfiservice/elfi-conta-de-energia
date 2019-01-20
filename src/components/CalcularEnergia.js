@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { StyleSheet, Text, View, TextInput, KeyboardAvoidingView, Keyboard, Alert } from 'react-native'
-import { gray, white, green } from '../utils/colors';
+import { gray, white, green, blue } from '../utils/colors';
 import { Button } from 'react-native-elements'
 
 class CalcularEnergia extends Component {
@@ -15,7 +15,7 @@ class CalcularEnergia extends Component {
     }
     render() {
         return (
-            <View style={styles.form}>
+            <KeyboardAvoidingView style={styles.form} behavior="padding" enabled >
                 <TextInput
                     style={styles.textInput}
                     onChangeText={(dado) => this.setState({dado})}
@@ -23,6 +23,7 @@ class CalcularEnergia extends Component {
                     placeholder={`Leitura do medidor aqui`}
                     placeholderTextColor='#ccc'
                     keyboardType={'number-pad'}
+                    blurOnSubmit={true}
                 />
                 <Button
                     title="Calcular"
@@ -31,7 +32,7 @@ class CalcularEnergia extends Component {
                     buttonStyle={styles.doneBtn}
                     onPress={this._calculate}
                 />
-            </View>
+            </KeyboardAvoidingView>
         )
     }
 }
@@ -49,11 +50,11 @@ const styles = StyleSheet.create({
     },
     textInput: {
         borderBottomWidth: 1,
-        borderBottomColor: gray,
+        borderBottomColor: blue,
         padding: 20,
         backgroundColor: white,
         fontSize: 20,
-        width: 200,
+        width: 225,
         textAlign: 'center'
     },
 });
