@@ -58,7 +58,6 @@ const styles = StyleSheet.create({
        color: red,
     },
     dadoTitulo: {
-        // paddingBottom: 20
         minHeight: 80,
         color: blue,
         fontSize: 16,

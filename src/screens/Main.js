@@ -11,6 +11,7 @@ class Main extends Component {
         this.state = { dados: undefined, resultado: '' }
     }
     componentDidMount() {
+        //toDo: atualizar os DADOS quando os dados forem atualizados pelo Usuario ( usar REDUX )
         getAllData()
             .then( data => {
                 this.setState({ dados: data })
@@ -22,8 +23,8 @@ class Main extends Component {
             const leituraAnterior = dados['2'].value
             const tarifa = dados['3'].value
             const diffDasLeituras = leituraAtual - leituraAnterior
-            const resultado = diffDasLeituras * tarifa
-            console.log(resultado);
+            const resultado = (diffDasLeituras * tarifa).toFixed(2)
+            //const resultado = Math.round(diffDasLeituras * tarifa)
             this.setState({ resultado })
         }
     }
