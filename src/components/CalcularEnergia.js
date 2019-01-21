@@ -31,6 +31,7 @@ class CalcularEnergia extends Component {
                     raised
                     buttonStyle={styles.doneBtn}
                     onPress={this._calculate}
+                    disabled={this.state.dado === '' ? true : false}
                 />
             </KeyboardAvoidingView>
         )
@@ -43,8 +44,8 @@ const styles = StyleSheet.create({
         marginTop: 20,
     },
     form: {
-        flex: 3,
-        marginTop: 20,
+        flex: 2,
+        marginTop: 30,
         justifyContent: 'center',
         alignItems: 'center',
     },

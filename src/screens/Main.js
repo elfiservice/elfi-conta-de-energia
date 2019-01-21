@@ -4,6 +4,7 @@ import DadosDaConta from '../components/DadosDaConta'
 import CalcularEnergia from '../components/CalcularEnergia'
 import MostrarResultado from '../components/MostrarResultado'
 import { getAllData } from '../utils/api' 
+import { numberToReal } from '../utils/helpers';
 
 class Main extends Component {
     constructor(props) {
@@ -23,9 +24,8 @@ class Main extends Component {
             const leituraAnterior = dados['2'].value
             const tarifa = dados['3'].value
             const diffDasLeituras = leituraAtual - leituraAnterior
-            const resultado = (diffDasLeituras * tarifa).toFixed(2)
-            //const resultado = Math.round(diffDasLeituras * tarifa)
-            this.setState({ resultado })
+            const resultado = diffDasLeituras * tarifa
+            this.setState({ resultado: numberToReal(resultado) })
         }
     }
     render() {

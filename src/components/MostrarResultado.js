@@ -16,7 +16,7 @@ class MostrarResultado extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 2,
-        marginTop: 20,
+        marginTop: 30,
         justifyContent: 'center',
         alignItems: 'center',
     },
