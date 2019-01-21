@@ -16,7 +16,7 @@ class Welcome extends Component {
     }
     render() {
         return (
-            <Slides data={SLIDE_DATA} onComplete={this.onSlidesComplete} />
+            <Slides slidesDataInfos={SLIDE_DATA} onComplete={this.onSlidesComplete} />
         )
     }
 }

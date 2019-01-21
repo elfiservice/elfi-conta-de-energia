@@ -5,6 +5,7 @@ import { Button } from 'react-native-elements'
 import { FontAwesome } from '@expo/vector-icons'
 import ModalInfo from './ModalInfo'
 import { saveData, getData } from '../utils/api'
+import { connect } from 'react-redux'
 
 class Slide extends Component {
     constructor(props) {
@@ -12,12 +13,14 @@ class Slide extends Component {
         this.state = { dado: '', modalVisible: false }
     }
     componentDidMount() {
-        getData(this.props.slide)
-            .then(result => {
-                if(result) {
-                    this.setState({ dado: result.value })
-                }  
-            })
+        // getData(this.props.slide)
+        //     .then(result => {
+        //         if(result) {
+        //             this.setState({ dado: result.value })
+        //         }  
+        //     })
+
+            this.setState({ dado: this.props.dado.value })
     }
     _save = () => {
         saveData(this.props.slide, this.state.dado)
@@ -35,6 +38,8 @@ class Slide extends Component {
   
     render() {
         const { slide } = this.props
+        console.log(this.props.dado);
+        
         return (
            <KeyboardAvoidingView style={styles.container} behavior="padding" enabled >
                <View style={styles.header} >
@@ -111,4 +116,12 @@ const styles = StyleSheet.create({
     },
 });
 
-export default Slide
+function mapStateToProps ({ dados }, { slide }) {
+    console.log(dados);
+    
+    return {
+        dado: dados[slide.id]
+    }
+}
+
+export default connect(mapStateToProps)(Slide)

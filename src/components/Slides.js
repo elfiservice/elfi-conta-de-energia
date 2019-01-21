@@ -2,14 +2,26 @@ import React, { Component } from 'react'
 import { StyleSheet, Text, View, ScrollView, Dimensions } from 'react-native'
 import { blue, white, red } from '../utils/colors'
 import { Button } from 'react-native-elements'
+import { connect } from 'react-redux'
+import { handlerGetAllDados } from '../actions/dados'
 
 import Slide from './Slide'
 
 const SCREEN_WIDTH_DEVICE = Dimensions.get('window').width;
 
 class Slides extends Component {
+    constructor(props) {
+        super(props)
+        this.state = { loading: true }
+    }
+    componentDidMount() {
+        this.props.handlerGetAllDados()
+            .then( res => {
+                this.setState({ loading: false })
+            })
+    }
     _renderSlides = () => {
-        return this.props.data.map( (slide, index) => (
+        return this.props.slidesDataInfos.map( (slide, index) => (
             <View key={index} style={[styles.slide, { backgroundColor: slide.color }]} >
                 <Slide slide={slide} />
                 {this._renderLastSlide(index)}
@@ -17,7 +29,7 @@ class Slides extends Component {
         ))
     }
     _renderLastSlide = (index) => {
-        if(index === this.props.data.length - 1) {
+        if(index === this.props.slidesDataInfos.length - 1) {
             return (
                 <Button
                     title="Concluido!"
@@ -35,7 +47,7 @@ class Slides extends Component {
                 style={{ flex: 1 }}
                 pagingEnabled
             >
-                {this._renderSlides()}
+                {this.state.loading ? false : this._renderSlides()}
             </ScrollView>
         )
     }
@@ -55,4 +67,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default Slides
+export default connect(null, { handlerGetAllDados })(Slides)  
