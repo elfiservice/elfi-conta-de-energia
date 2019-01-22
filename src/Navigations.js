@@ -38,8 +38,8 @@ const TabNavigatorConfig = {
     tabBarOptions: {
         activeTintColor: Platform.OS === 'ios' ? white : white,
         style: {
-            height: Platform.OS === 'ios' ? 56 : 80,
-            paddingTop: Platform.OS === 'ios' ? 0 : 25,
+            height: Platform.OS === 'ios' ? 56 : 56,
+            paddingTop: Platform.OS === 'ios' ? 0 : 0,
             backgroundColor: Platform.OS === 'ios' ? blue : blue,
             shadowColor: 'rgba(0, 0, 0, 0.24)',
         shadowOffset: {
