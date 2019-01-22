@@ -4,22 +4,21 @@ import { green, white, red, gray } from '../utils/colors'
 import { Button } from 'react-native-elements'
 import { FontAwesome } from '@expo/vector-icons'
 import ModalInfo from './ModalInfo'
-import { saveData, getData } from '../utils/api'
 import { connect } from 'react-redux'
+import { handlerSaveData } from '../actions/dados';
 
 class Slide extends Component {
     constructor(props) {
         super(props)
-        this.state = { dado: '', modalVisible: false }
+        this.state = { novoDado: '', modalVisible: false }
     }
     componentDidMount() {
-        this.setState({ dado: this.props.dado.value })
+        this.setState({ novoDado: this.props.dado.value })
     }
     _save = () => {
-        //todo: criar Action para salvar dado
-        saveData(this.props.slide, this.state.dado)
+        this.props.handlerSaveData(this.props.slide, this.state.novoDado)
             .then(() => {
-                Alert.alert(`Salvo o valor ${this.state.dado} com sucesso!`)
+                Alert.alert(`Salvo o valor ${this.state.novoDado} com sucesso!`)
             })
             .catch(err => {
                 Alert.alert(`Ops! Ocorreu um erro ao tentar salvar, favor tentar novamente! grato`)
@@ -42,8 +41,8 @@ class Slide extends Component {
                <View style={styles.form}>
                     <TextInput
                         style={styles.textInput}
-                        onChangeText={(dado) => this.setState({dado})}
-                        value={this.state.dado}
+                        onChangeText={(novoDado) => this.setState({novoDado})}
+                        value={this.state.novoDado}
                         placeholder={`${slide.key} aqui`}
                         placeholderTextColor='#ccc'
                         keyboardType={slide.id === 3 ? 'decimal-pad' : 'number-pad'}
@@ -121,4 +120,4 @@ function mapStateToProps ({ dados }, { slide }) {
     }
 }
 
-export default connect(mapStateToProps)(Slide)
+export default connect(mapStateToProps, { handlerSaveData })(Slide)

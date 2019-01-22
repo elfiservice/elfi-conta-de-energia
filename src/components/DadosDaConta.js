@@ -43,14 +43,15 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         width: (width - 25) / 3,
         paddingRight: 5,
-        paddingLeft: 5,
+        paddingLeft:5,
     },
     border: {
         borderRightWidth: 1,
         borderColor: blue,  
     },
     lastDadosContent: {
-        paddingRight: 0,
+        paddingRight: 10,
+        paddingLeft:10,
     },
     dado: {
        fontWeight: "700",
@@ -58,6 +59,7 @@ const styles = StyleSheet.create({
        color: red,
     },
     dadoTitulo: {
+        textAlign: 'center',
         minHeight: 80,
         color: blue,
         fontSize: 16,
