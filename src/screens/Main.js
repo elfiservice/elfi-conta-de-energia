@@ -12,7 +12,7 @@ class Main extends Component {
         this.state = { dados: undefined, resultado: '' }
     }
     componentDidMount() {
-        //toDo: atualizar os DADOS quando os dados forem atualizados pelo Usuario ( usar REDUX )
+        //toDo: pegar dados do STATE ( usar REDUX ) conectar componente
         getAllData()
             .then( data => {
                 this.setState({ dados: data })

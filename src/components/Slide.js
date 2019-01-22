@@ -13,16 +13,10 @@ class Slide extends Component {
         this.state = { dado: '', modalVisible: false }
     }
     componentDidMount() {
-        // getData(this.props.slide)
-        //     .then(result => {
-        //         if(result) {
-        //             this.setState({ dado: result.value })
-        //         }  
-        //     })
-
-            this.setState({ dado: this.props.dado.value })
+        this.setState({ dado: this.props.dado.value })
     }
     _save = () => {
+        //todo: criar Action para salvar dado
         saveData(this.props.slide, this.state.dado)
             .then(() => {
                 Alert.alert(`Salvo o valor ${this.state.dado} com sucesso!`)
@@ -117,10 +111,12 @@ const styles = StyleSheet.create({
 });
 
 function mapStateToProps ({ dados }, { slide }) {
-    console.log(dados);
-    
+    let dadoDoSlide = dados[slide.id]
+    if(!dadoDoSlide) {
+        dadoDoSlide = { id: slide.id, value: '' }
+    }
     return {
-        dado: dados[slide.id]
+        dado: dadoDoSlide
     }
 }
 
