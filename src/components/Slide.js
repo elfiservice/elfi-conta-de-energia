@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
     },
     doneBtn: {
         backgroundColor: green,
-        marginTop: 20,
+        marginTop: 0,
     },
     infoBtn: {
         marginTop: 40,
@@ -106,7 +106,8 @@ const styles = StyleSheet.create({
         backgroundColor: white,
         fontSize: 20,
         width: 200,
-        textAlign: 'center'
+        textAlign: 'center',
+        marginBottom: 20,
     },
 });
 

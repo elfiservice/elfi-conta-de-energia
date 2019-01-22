@@ -41,7 +41,6 @@ class CalcularEnergia extends Component {
 const styles = StyleSheet.create({
     doneBtn: {
         backgroundColor: green,
-        marginTop: 20,
     },
     form: {
         flex: 2,
@@ -56,7 +55,8 @@ const styles = StyleSheet.create({
         backgroundColor: white,
         fontSize: 20,
         width: 225,
-        textAlign: 'center'
+        textAlign: 'center',
+        marginBottom: 20,
     },
 });
 

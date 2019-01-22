@@ -31,12 +31,15 @@ class Slides extends Component {
     _renderLastSlide = (index) => {
         if(index === this.props.slidesDataInfos.length - 1) {
             return (
-                <Button
-                    title="Concluido!"
-                    raised
-                    buttonStyle={styles.doneBtn}
-                    onPress={this.props.onComplete}
-                />
+                <View style={styles.btnContainer}>
+                    <Button
+                        title="Concluido!"
+                        raised
+                        buttonStyle={styles.doneBtn}
+                        onPress={this.props.onComplete}
+                    />
+                </View>
+
             )
         }
     }
@@ -62,6 +65,8 @@ const styles = StyleSheet.create({
     },
     doneBtn: {
         backgroundColor: red,
+    },
+    btnContainer: {
         marginTop: 20,
         marginBottom: 20,
     }
