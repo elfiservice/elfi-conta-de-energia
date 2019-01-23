@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { StyleSheet, Text, View, ScrollView, Dimensions } from 'react-native'
+import { StyleSheet, Text, View, ScrollView, Dimensions, Alert } from 'react-native'
 import { blue, white, red } from '../utils/colors'
 import { Button } from 'react-native-elements'
 import { connect } from 'react-redux'
@@ -36,7 +36,7 @@ class Slides extends Component {
                         title="Concluido!"
                         raised
                         buttonStyle={styles.doneBtn}
-                        onPress={this.props.onComplete}
+                        onPress={() => this.props.onComplete(this.props.dados)}
                     />
                 </View>
 
@@ -72,4 +72,11 @@ const styles = StyleSheet.create({
     }
 });
 
-export default connect(null, { handlerGetAllDados })(Slides)  
+function mapStateToProps ({ dados }) {
+
+    return {
+        dados
+    }
+}
+
+export default connect(mapStateToProps, { handlerGetAllDados })(Slides)  

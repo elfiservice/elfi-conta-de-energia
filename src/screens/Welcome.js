@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, Alert } from 'react-native'
 import { blue, white, red } from '../utils/colors'
+import _ from 'lodash'
 
 import Slides from '../components/Slides'
 
@@ -11,8 +12,25 @@ const SLIDE_DATA = [
 ]
 
 class Welcome extends Component {
-    onSlidesComplete = () => {
+    onSlidesComplete = (dados) => {
+        this._validationDados(dados)
         this.props.navigation.navigate('main')
+    }
+    _validationDados = (dados) => {
+        if(_.isEmpty(dados) || _.values(dados).length < 3) {
+            msgToUserAlert()
+            return false
+        } else {
+            for (var key in dados) {
+                if(dados[key].value === '' || dados[key].value === '0') {
+                    msgToUserAlert()
+                    return false
+                }
+            }
+        }
+        function msgToUserAlert() {
+            Alert.alert('Ops! Favor preencher todos os dados!')
+        }
     }
     render() {
         return (

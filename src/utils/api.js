@@ -51,3 +51,7 @@ export function getAllData() {
         return data
     })
 }
+
+export function clearStorage() {
+    AsyncStorage.clear()
+}
