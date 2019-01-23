@@ -14,7 +14,6 @@ const SLIDE_DATA = [
 class Welcome extends Component {
     onSlidesComplete = (dados) => {
         this._validationDados(dados)
-        this.props.navigation.navigate('main')
     }
     _validationDados = (dados) => {
         if(_.isEmpty(dados) || _.values(dados).length < 3) {
@@ -31,6 +30,7 @@ class Welcome extends Component {
         function msgToUserAlert() {
             Alert.alert('Ops! Favor preencher todos os dados!')
         }
+        this.props.navigation.navigate('main')
     }
     render() {
         return (

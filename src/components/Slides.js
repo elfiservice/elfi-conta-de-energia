@@ -73,7 +73,6 @@ const styles = StyleSheet.create({
 });
 
 function mapStateToProps ({ dados }) {
-
     return {
         dados
     }
