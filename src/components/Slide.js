@@ -16,9 +16,10 @@ class Slide extends Component {
         this.setState({ novoDado: this.props.dado.value })
     }
     _save = () => {
-        this.props.handlerSaveData(this.props.slide, this.state.novoDado)
+        const novoDado = this.state.novoDado.replace(",",".")
+        this.props.handlerSaveData(this.props.slide, novoDado)
             .then(() => {
-                Alert.alert(`Salvo o valor ${this.state.novoDado} com sucesso!`)
+                Alert.alert(`Salvo o valor ${novoDado} com sucesso!`)
             })
             .catch(err => {
                 Alert.alert(`Ops! Ocorreu um erro ao tentar salvar, favor tentar novamente! grato`)
