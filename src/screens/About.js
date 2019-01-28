@@ -91,17 +91,20 @@ class About extends Component {
 
 const styles = StyleSheet.create({
     container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
         padding: 20,
     },
     content: {
-        marginTop: 10,
+        marginTop: 15,
         justifyContent: 'center',
         alignItems: 'center',
         
     },
     texts: {
         textAlign: 'center',
-        fontSize: 20,
+        fontSize: 16,
     },
     headLine: {
         fontWeight: 'bold',

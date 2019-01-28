@@ -35,7 +35,7 @@ class Main extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        marginTop: 40,
+        marginTop: 60,
         paddingRight: 20,
         paddingLeft: 20,
     },
