@@ -9,8 +9,6 @@ class CalcularEnergia extends Component {
         this.state = { dado: '' }
     }
     _calculate = () => {
-        //todo> chamar funcao no Main Compt passando o dado da Leitura do medidor
-        Alert.alert('Calculando,...')
         this.props.calculate(this.state.dado)
     }
     render() {
