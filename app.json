@@ -2,13 +2,13 @@
   "expo": {
     "name": "Elfi Conta De Energia",
     "description": "Está aplicação é uma ferramenta para lhe ajudar a calcular quanto esta custando sua Conta de Energia HOJE.",
-    "slug": "Elfi Conta De Energia",
+    "slug": "elfi-conta-de-energia",
     "privacy": "public",
     "sdkVersion": "31.0.0",
     "platforms": ["ios", "android"],
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.jpg",
+    "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -21,7 +21,11 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.ajudanaweb.elficontadeenergia"
+    },
+    "android": {
+      "package": "com.ajudanaweb.elficontadeenergia"
     }
   }
 }
