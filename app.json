@@ -25,7 +25,9 @@
       "bundleIdentifier": "com.ajudanaweb.elficontadeenergia"
     },
     "android": {
-      "package": "com.ajudanaweb.elficontadeenergia"
+      "package": "com.ajudanaweb.elficontadeenergia",
+      "versionCode": 2,
+      "permissions": []
     }
   }
 }
