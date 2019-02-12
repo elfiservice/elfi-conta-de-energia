@@ -9,6 +9,8 @@ import { connect } from 'react-redux'
 class Main extends Component {
     constructor(props) {
         super(props)
+        //TODO: limpar o resultado ao entrar no Tab de Dados ( evitar o probleminha 
+        //d quando clicar em salvar dado ele mostra 2 Alerts um com a msg d sucesso e outro com o resultado do valor da conta d energia)
         this.state = { dados: undefined, resultado: '' }
     }
     _calculate = (leituraAtual) => {

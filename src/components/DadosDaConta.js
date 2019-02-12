@@ -16,11 +16,11 @@ class DadosDaConta extends Component {
         return (
             <View style={styles.dadosContainer}>
                 <View style={[styles.dadosContent, styles.border]}>
-                    <Text style={styles.dadoTitulo}>Dia fehcamento da Conta</Text>
+                    <Text style={styles.dadoTitulo}>Dia fehcamento</Text>
                     <Text style={styles.dado}>{data['1'].value}</Text>
                 </View>
                 <View style={[styles.dadosContent, styles.border]}>
-                    <Text style={styles.dadoTitulo}>Leitura Anterior</Text>
+                    <Text style={styles.dadoTitulo}>Leitura Atual</Text>
                     <Text style={styles.dado}>{data['2'].value}</Text>
                 </View>
                 <View style={[styles.dadosContent, styles.lastDadosContent]}>
@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
     },
     dado: {
        fontWeight: "700",
-       fontSize: 20,
+       fontSize: 18,
        color: red,
     },
     dadoTitulo: {
